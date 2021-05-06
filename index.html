@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Travel Time Directions</title>
+        <link href="css/API-Project.css" rel="stylesheet">
+        <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="js/GoogleMaps.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB29fsuVUbGao1L-ESO3oyiQXNQ-m-h3A&callback=initMap"></script>
+    </head>
+    <body>
+    <h1 class="top"><i class="fa fa-compass"></i> Travel Time Directions</h1>
+        <div class="both">
+            <div class="left-side">
+                <h2>Output</h2>
+                <div id="map" class="map"></div>
+                <h2>Inputs</h2>
+                <form action="" method="POST" name="meetupForm" id="meetupForm">
+                    <div>
+                        <div>
+                            <input type="text" id="startLocation" placeholder="Starting Address">
+                        </div>
+                        <br/>
+                        <div>
+                            <input type="text" id="destinationLocation" placeholder="Destination Address">
+                        </div>
+                        <br/>
+                        <div class="dt">
+                            <label>Date & Time ("2021-01-01 12:00:00")</label>
+                            <br/>
+                            <input type="datetime-local" id="departureTime">
+                        </div>
+                        <div class="cb">
+                            <input type="checkbox" id="bus" name="check" value="TRANSIT">
+                            <label>Bus</label>
+                            <input type="checkbox" id="car" name="check" value="DRIVING">
+                            <label>Car</label>
+                            <input type="checkbox" id="walk" name="check" value="WALKING">
+                            <label>Walk</label>
+                            <input type="checkbox" id="bicycle" name="check" value="BICYCLING">
+                            <label>Bicycle</label>
+                        </div>
+                        <br/>
+                        <span style="color: red;" id="errorMsg"></span>
+                    </div>
+                    <br/>
+                    <div>
+                        <input type="submit" name="submitButton" id="submitButton" value="Locate">
+                    </div>
+                </form>
+            </div>
+            <div class="right-side">
+                <h2>Directions</h2>
+                <div id="right-panel"></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+html, body {
+    font-family: 'Itim', cursive;
+    margin: 0;
+}
+#map {
+    height: 400px; 
+    width: 90%;
+    filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
+}
+h1{
+    text-align: center;
+    color: white;
+}
+.top{
+    background: linear-gradient(45deg, #d62828, #f9844a);
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.both{
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.left-side{
+    width: 50%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.right-side{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    background-color: rgb(189, 189, 189);
+    width: 35%;
+    border: thin dotted black;
+    position: relative;
+}
+.right-side h2{
+    text-align: center;
+}
+#right-panel select, #right-panel input {
+    font-size: 15px;
+}
+#right-panel select {
+    width: 100%;
+}
+#right-panel i {
+    font-size: 12px;
+}
+#right-panel {
+    width: 90%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 20px;
+}
+#startLocation, #destinationLocation{
+    padding: 10px;
+    width: 80%;
+    border: thin solid black;
+    filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
+    border-radius: 20px;
+}
+#departureTime{
+    filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
+}
+#submitButton{
+    padding: 10px 20px;
+    background-color: #d62828;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 1px 6px 6px 1px rgba(0,0,0,0.7);
+}
+#submitButton:hover{
+    background: #f9844a;
+    cursor: pointer;
+}
+.dt, .cb{
+    display: inline-block;
+}
+@media only screen and (max-width: 1000px){
+    .cb{
+        padding-top: 20px;
+    }
+    .both{
+        flex-direction: column;
+    }
+    .left-side{
+        width: 80%;
+    }
+    .right-side{
+        width: 80%;
+    }
+}
