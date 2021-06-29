@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-html, body {
-    font-family: 'Itim', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+html, body  {
+    font-family: 'Ubuntu', sans-serif;
     margin: 0;
 }
 #map {
@@ -8,38 +8,50 @@ html, body {
     width: 90%;
     filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
 }
-h1{
+h1 {
     text-align: center;
     color: white;
 }
-.top{
+.top {
     background: linear-gradient(45deg, #d62828, #f9844a);
     margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-.both{
+.info-block {
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: black;
+}
+.info-block p {
+    margin: 0;
+    color: rgb(189, 189, 189);
+    text-align: center;
+    font-weight: 800;
+}
+.both {
     margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
-.left-side{
+.left-side {
     width: 50%;
     margin: auto;
     padding-bottom: 40px;
 }
-.right-side{
+.right-side {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 50px;
+    border-radius: 10px;
     background-color: rgb(189, 189, 189);
     width: 35%;
     border: thin dotted black;
     position: relative;
 }
-.right-side h2{
+.right-side h2 {
     text-align: center;
 }
 #right-panel select, #right-panel input {
@@ -57,42 +69,97 @@ h1{
     margin: auto;
     margin-bottom: 20px;
 }
-#startLocation, #destinationLocation{
+#startLocation, #destinationLocation {
     padding: 10px;
     width: 80%;
-    border: thin solid black;
-    filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
-    border-radius: 20px;
+    border: thin solid rgb(117, 117, 117);
+    border-radius: 10px;
 }
-#departureTime{
-    filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
-}
-#submitButton{
+#submitButton {
     padding: 10px 20px;
     background-color: #d62828;
     border: none;
     color: white;
     border-radius: 10px;
     box-shadow: 1px 6px 6px 1px rgba(0,0,0,0.7);
+    font-size: 12pt;
 }
-#submitButton:hover{
+#submitButton:hover {
     background: #f9844a;
     cursor: pointer;
 }
-.dt, .cb{
+.dt, .cb {
     display: inline-block;
 }
-@media only screen and (max-width: 1000px){
-    .cb{
+@media only screen and (max-width: 1000px) {
+    .top {
+        font-size: 40px;
+    }
+    .info-block {
+        font-size: 26px;
+    }
+    .cb {
         padding-top: 20px;
     }
-    .both{
+    .both {
         flex-direction: column;
     }
-    .left-side{
+    .left-side {
+        width: 100%;
+    }
+    .left-side h2 {
+        text-align: center;
+        font-size: 28pt;
+    }
+    #startLocation, #destinationLocation {
+        text-align: center;
+        padding: 20px;
+        width: 60%;
+        border: thin solid black;
+        border-radius: 20px;
+        font-size: 26pt;
+    }
+    .dt, .cb {
+        display: block;
+        font-size: 26pt;
+        margin: 50px 0 50px 0;
+    }
+    .dt input {
+        font-size: 26pt;
+    }
+    .cb input {
+        font-size: 26pt;
+        width:30px;
+        height:30px;
+    }
+    #submitButton {
+        padding: 20px 40px;
+        background-color: #d62828;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 1px 6px 6px 1px rgba(0,0,0,0.7);
+        font-size: 26pt;
+    }
+    #errorMsg {
+        font-size: 26pt;
+        text-align: center;
+    }
+    .center {
+        text-align: center;
+    }
+    .right-side {
         width: 80%;
     }
-    .right-side{
-        width: 80%;
+    .right-side h2 {
+        font-size: 28pt;
+    }
+    .adp table{
+        font-size: 28pt;
+    }
+    #map {
+        height: 600px;
+        width: 100%;
+        margin: auto;
     }
 }

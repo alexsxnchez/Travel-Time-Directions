@@ -7,11 +7,12 @@ function initMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var directionsService = new google.maps.DirectionsService;
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12, 
+        zoom: 13, 
         center: {lat: 43.7243, lng: -79.6055}
     });
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('right-panel'));
+
 
     //verify form
     var form = document.forms.meetupForm;
@@ -79,4 +80,5 @@ function initMap() {
         });
     }
 }
+
 

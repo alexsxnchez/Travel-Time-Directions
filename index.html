@@ -11,6 +11,7 @@
     </head>
     <body>
     <h1 class="top"><i class="fa fa-compass"></i> Travel Time Directions</h1>
+    <div class="info-block"><p>You must input your current location, destination, date and time of leave, and transportation type and in return a full list of directions will be outputed with estimated time(trafic or no traffic). Within the map you will find the route from point A to B.</p></div>
         <div class="both">
             <div class="left-side">
                 <h2>Output</h2>
@@ -18,20 +19,20 @@
                 <h2>Inputs</h2>
                 <form action="" method="POST" name="meetupForm" id="meetupForm">
                     <div>
-                        <div>
+                        <div class="center">
                             <input type="text" id="startLocation" placeholder="Starting Address">
                         </div>
                         <br/>
-                        <div>
+                        <div class="center">
                             <input type="text" id="destinationLocation" placeholder="Destination Address">
                         </div>
                         <br/>
-                        <div class="dt">
+                        <div class="dt center">
                             <label>Date & Time ("2021-01-01 12:00:00")</label>
                             <br/>
                             <input type="datetime-local" id="departureTime">
                         </div>
-                        <div class="cb">
+                        <div class="cb center">
                             <input type="checkbox" id="bus" name="check" value="TRANSIT">
                             <label>Bus</label>
                             <input type="checkbox" id="car" name="check" value="DRIVING">
@@ -45,7 +46,7 @@
                         <span style="color: red;" id="errorMsg"></span>
                     </div>
                     <br/>
-                    <div>
+                    <div class="center">
                         <input type="submit" name="submitButton" id="submitButton" value="Locate">
                     </div>
                 </form>
