@@ -2,59 +2,68 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <title>Travel Time Directions</title>
         <link href="css/API-Project.css" rel="stylesheet">
-        <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
         <script src="js/GoogleMaps.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB29fsuVUbGao1L-ESO3oyiQXNQ-m-h3A&callback=initMap"></script>
     </head>
     <body>
-    <h1 class="top"><i class="fa fa-compass"></i> Travel Time Directions</h1>
-    <div class="info-block"><p>You must input your current location, destination, date and time of leave, and transportation type and in return a full list of directions will be outputed with estimated time(trafic or no traffic). Within the map you will find the route from point A to B.</p></div>
-        <div class="both">
-            <div class="left-side">
-                <h2>Output</h2>
-                <div id="map" class="map"></div>
-                <h2>Inputs</h2>
+    <h1 class="top"><i class="fa fa-map"></i>&nbsp; Travel Time Directions</h1>
+    <div class="info-block"><p><u>SIMPLE STEPS:</u> Input your ( current location, destination location, date and time of leave, and transportation type ). In return on the map you will find the route from point A to B an with estimated time ( Includes traffic hours ).</p></div>
+		<div class="direction-container">
+            <div class="direction-box">
+				<div class="open-box">Close X</div>
+                <h2 style="padding-bottom:20px; text-align:center;">Input Data</h2>
                 <form action="" method="POST" name="meetupForm" id="meetupForm">
-                    <div>
-                        <div class="center">
-                            <input type="text" id="startLocation" placeholder="Starting Address">
+                    <div style="margin:auto;">
+                        <div >
+                            <i class="fa fa-map-pin" style="color:#00E300;"></i>&nbsp; <input type="text" id="startLocation" placeholder="Enter Location">
                         </div>
                         <br/>
-                        <div class="center">
-                            <input type="text" id="destinationLocation" placeholder="Destination Address">
+                        <div >
+                            <i class="fa fa-map-pin" style="color:red;"></i>&nbsp; <input type="text" id="destinationLocation" placeholder="Enter Destination">
                         </div>
                         <br/>
-                        <div class="dt center">
-                            <label>Date & Time ("2021-01-01 12:00:00")</label>
-                            <br/>
-                            <input type="datetime-local" id="departureTime">
+                        <div class="datetime-input">
+                            <input type="datetime-local" id="departureTime" data-date="" data-date-format="YYYY-MM-DD HH:mm" value="2022-01-01T00:00:00" style="padding:5px;">
                         </div>
-                        <div class="cb center">
-                            <input type="checkbox" id="bus" name="check" value="TRANSIT">
-                            <label>Bus</label>
-                            <input type="checkbox" id="car" name="check" value="DRIVING">
-                            <label>Car</label>
-                            <input type="checkbox" id="walk" name="check" value="WALKING">
-                            <label>Walk</label>
-                            <input type="checkbox" id="bicycle" name="check" value="BICYCLING">
-                            <label>Bicycle</label>
+						<br><br>
+                        <div class="radio-inputs center">
+							<div class="mark">
+								<label><i class="fas fa-bus"></i></label>&nbsp;
+								<input type="radio" id="bus" name="check" value="TRANSIT" style="width:13px; height:13px;">
+							</div>
+							<div class="mark">
+								<label><i class="fas fa-car"></i></label>&nbsp;
+								<input type="radio" id="car" name="check" value="DRIVING" style="width:13px; height:13px;">
+							</div>
+							<div class="mark">
+								<label><i class="fas fa-male"></i></label>&nbsp;
+								<input type="radio" id="walk" name="check" value="WALKING" style="width:13px; height:13px;">
+							</div>
+							<div class="mark">
+								<label><i class="fas fa-bicycle"></i></label>&nbsp;
+								<input type="radio" id="bicycle" name="check" value="BICYCLING" style="width:13px; height:13px;">
+							</div>
                         </div>
                         <br/>
-                        <span style="color: red;" id="errorMsg"></span>
+                        <span style="color: red; margin-left: 20px;" id="errorMsg"></span>
                     </div>
                     <br/>
-                    <div class="center">
-                        <input type="submit" name="submitButton" id="submitButton" value="Locate">
+                    <div>
+                        <input type="submit" name="submitButton" id="submitButton" value="Get Directions">
                     </div>
                 </form>
-            </div>
-            <div class="right-side">
-                <h2>Directions</h2>
+				<br><br>
+                <h2 style="padding-bottom:20px; text-align:center;">Directions</h2>
                 <div id="right-panel"></div>
             </div>
         </div>
+		<div class="map-container">
+			<div id="map"></div>
+		</div>
     </body>
 </html>

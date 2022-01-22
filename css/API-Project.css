@@ -2,66 +2,94 @@
 html, body  {
     font-family: 'Ubuntu', sans-serif;
     margin: 0;
+	background: white;
+}
+*, *::after, *::before {
+	margin: 0;
 }
 #map {
-    height: 400px; 
-    width: 90%;
-    filter: drop-shadow(1px 6px 6px rgba(0,0,0,0.7));
+    height: 100vh; 
+    width: 100%;
 }
 h1 {
     text-align: center;
     color: white;
 }
 .top {
-    background: linear-gradient(45deg, #d62828, #f9844a);
+    background: linear-gradient(45deg, #d64628, #f94a4a);
     margin: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 0;
 }
 .info-block {
     padding: 20px;
-    margin-bottom: 10px;
-    background-color: black;
+	background-color: black;
 }
 .info-block p {
     margin: 0;
-    color: rgb(189, 189, 189);
+	font-size: 15px;
+    color: white;
     text-align: center;
-    font-weight: 800;
+    font-weight: 500;
 }
-.both {
-    margin-top: 60px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    margin-bottom: 20px;
+.direction-container {
+	position: relative;
 }
-.left-side {
-    width: 50%;
-    margin: auto;
-    padding-bottom: 40px;
+.open-box {
+	display: none;
 }
-.right-side {
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    background-color: rgb(189, 189, 189);
-    width: 35%;
-    border: thin dotted black;
-    position: relative;
+.direction-box {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	background-color: white;
+	box-shadow: 2px 2px 20px -5px rgb(128 128 128);
+    padding: 40px 20px 20px 20px;
+	width: 320px;
 }
-.right-side h2 {
-    text-align: center;
-}
-#right-panel select, #right-panel input {
-    font-size: 15px;
-}
-#right-panel select {
+.map-container {
+	position: fixed;
+	top: 0;
+	left: 0;
     width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+	z-index: -1;
 }
-#right-panel i {
-    font-size: 12px;
+.map-container h2 {
+    text-align: center;
+}
+.fa {
+	font-size:20px;
+}
+.fas {
+	font-size:15px;
+}
+input[type='radio']:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 5px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: #d1d3d1;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
+}
+input[type='radio']:checked:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 5px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: #86599b;
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid white;
 }
 #right-panel {
     width: 90%;
@@ -71,92 +99,120 @@ h1 {
 }
 #startLocation, #destinationLocation {
     padding: 10px;
-    width: 80%;
+    width: 77%;
     border: thin solid rgb(117, 117, 117);
-    border-radius: 10px;
+    border-radius: 3px;
 }
 #submitButton {
     padding: 10px 20px;
     background-color: #d62828;
     border: none;
     color: white;
-    border-radius: 10px;
-    box-shadow: 1px 6px 6px 1px rgba(0,0,0,0.7);
+	width: 87%;
+	margin-left: 20px;
+    border-radius: 3px;
     font-size: 12pt;
 }
 #submitButton:hover {
     background: #f9844a;
     cursor: pointer;
 }
-.dt, .cb {
-    display: inline-block;
+.datetime-input {
+	margin-left: 20px;
+	display: inline-block;
 }
-@media only screen and (max-width: 1000px) {
+.radio-inputs {
+	width: 87%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 15px;
+	margin-left: 20px;
+}
+.mark {
+	color: rgb(78, 78, 78);
+}
+.radio-inputs .mark:hover {
+	color: black;
+}
+@media only screen and (max-width: 700px) {
     .top {
-        font-size: 40px;
+        font-size: 30px;
     }
-    .info-block {
-        font-size: 26px;
+    .info-block p {
+        font-size: 17px;
     }
-    .cb {
+    .radio-inputs {
         padding-top: 20px;
     }
-    .both {
-        flex-direction: column;
+	.open-box {
+		display: block;
+		padding: 10px;
+		background: linear-gradient(45deg, #d64628, #f94a4a);
+		color: white;
+		margin-bottom: 40px;
+		font-size: 18px;
+		border-radius: 3px;
+	}
+    .direction-box {
+        left: 50%;
+		transform: translate(-50%, 0);
+		top: 350px;
+		width: 94%;
+		text-align: center;
+		padding: 20px 20px 20px 20px;
     }
-    .left-side {
-        width: 100%;
-    }
-    .left-side h2 {
+    .direction-box h2 {
         text-align: center;
-        font-size: 28pt;
+        font-size: 25pt;
     }
     #startLocation, #destinationLocation {
         text-align: center;
-        padding: 20px;
-        width: 60%;
-        border: thin solid black;
-        border-radius: 20px;
-        font-size: 26pt;
+        padding: 10px;
+        width: 80%;
+        font-size: 15pt;
     }
-    .dt, .cb {
-        display: block;
-        font-size: 26pt;
-        margin: 50px 0 50px 0;
+    .datetime-input, .radio-inputs {
+        font-size: 15pt;
     }
-    .dt input {
-        font-size: 26pt;
+    .datetime-input input {
+        font-size: 15pt;
+		width: 100%;
     }
-    .cb input {
-        font-size: 26pt;
+    .radio-inputs input {
+        font-size: 15pt;
         width:30px;
         height:30px;
     }
     #submitButton {
         padding: 20px 40px;
         background-color: #d62828;
-        border: none;
-        color: white;
-        border-radius: 10px;
-        box-shadow: 1px 6px 6px 1px rgba(0,0,0,0.7);
-        font-size: 26pt;
+        font-size: 15pt;
+		margin-left: 0;
     }
     #errorMsg {
-        font-size: 26pt;
+        font-size: 15pt;
         text-align: center;
     }
-    .center {
-        text-align: center;
+    .map-container {
+        width: 100%;
     }
-    .right-side {
-        width: 80%;
+    .map-container h2 {
+        font-size: 25pt;
     }
-    .right-side h2 {
-        font-size: 28pt;
-    }
-    .adp table{
-        font-size: 28pt;
-    }
+	.fa {
+		font-size:30px;
+	}
+	.fas {
+		font-size:25px;
+	}
+	input[type='radio']:after {
+		width: 25px;
+		height: 25px;
+	}
+	input[type='radio']:checked:after {
+		width: 25px;
+		height: 25px;
+	}
     #map {
         height: 600px;
         width: 100%;

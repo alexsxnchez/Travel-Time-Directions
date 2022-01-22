@@ -41,7 +41,7 @@ function initMap() {
             return false;
         }
         if(bus.checked === false && car.checked === false && walk.checked === false && bicycle.checked === false){
-            errorMsg.innerHTML = "A Checkbox must be clicked.";
+            errorMsg.innerHTML = "Must select a transportation type.";
             return false;
         }
         else {
